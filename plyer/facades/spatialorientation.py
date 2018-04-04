@@ -1,6 +1,5 @@
 # coding=utf-8
 
-
 class SpatialOrientation(object):
     '''Spatial Orientation facade.
 
@@ -8,6 +7,13 @@ class SpatialOrientation(object):
 
     .. versionadded:: 1.3.1
     '''
+
+    def __enter__(self):
+        self.enable_listener()
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self.disable_listener()
 
     @property
     def orientation(self):

@@ -6,6 +6,13 @@ class Humidity(object):
        Use property `tell` to get humidity value.
     '''
 
+    def __enter__(self):
+        self.enable()
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self.disable()
+
     @property
     def tell(self):
         '''Current humidity'''

@@ -7,6 +7,13 @@ class Gravity(object):
 
     '''
 
+    def __enter__(self):
+        self.enable()
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self.disable()
+
     @property
     def gravity(self):
         '''Property that returns values of the current gravity force

@@ -16,6 +16,13 @@ class Proximity(object):
     Supported Platforms::Android
     '''
 
+    def __enter__(self):
+        self.enable()
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self.disable()
+
     @property
     def proximity(self):
         '''Return True or False depending if there is an object or not.

@@ -14,6 +14,13 @@ class Light(object):
     Supported Platforms:: Android
     '''
 
+    def __enter__(self):
+        self.enable()
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self.disable()
+
     @property
     def illumination(self):
         '''Current illumination in lx.'''

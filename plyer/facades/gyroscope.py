@@ -48,6 +48,13 @@ class Gyroscope(object):
     .. versionadded:: 1.3.1
     '''
 
+    def __enter__(self):
+        self.enable()
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self.disable()
+
     @property
     def rotation(self):
         '''

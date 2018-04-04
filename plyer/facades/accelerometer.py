@@ -38,6 +38,13 @@ class Accelerometer(object):
     Accelerometer facade.
     '''
 
+    def __enter__(self):
+        self.enable()
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self.disable()
+
     @property
     def acceleration(self):
         '''

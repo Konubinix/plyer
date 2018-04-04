@@ -16,6 +16,13 @@ class Temperature(object):
 
     '''
 
+    def __enter__(self):
+        self.enable()
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self.disable()
+
     @property
     def temperature(self):
         '''Current air temperature in degree C.'''

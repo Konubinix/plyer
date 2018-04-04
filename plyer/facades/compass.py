@@ -43,6 +43,13 @@ class Compass(object):
     .. versionadded:: 1.2.0
     '''
 
+    def __enter__(self):
+        self.enable()
+        return self
+
+    def __exit__(self, type, value, traceback):
+        self.disable()
+
     @property
     def orientation(self):
         '''
